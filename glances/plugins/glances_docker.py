@@ -94,9 +94,9 @@ class Plugin(GlancesPlugin):
         # Init connection to the Docker API
         try:
             if version is None:
-                ret = docker.Client(base_url='unix://var/run/docker.sock')
+                ret = docker.Client(base_url='127.0.0.1:4243')
             else:
-                ret = docker.Client(base_url='unix://var/run/docker.sock',
+                ret = docker.Client(base_url='127.0.0.1:4243',
                                     version=version)
         except NameError:
             # docker lib not found
